@@ -1,0 +1,23 @@
+{
+  "name": "estheticconnect",
+  "version": "1.0.0",
+  "description": "site para uma clinica de estética",
+  "homepage": "https://github.com/BeatrizModesto/EstheticConnect#readme",
+  "bugs": {
+    "url": "https://github.com/BeatrizModesto/EstheticConnect/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BeatrizModesto/EstheticConnect.git"
+  },
+  "license": "ISC",
+  "author": "Beatriz lemos , Beatriz Modesto",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
