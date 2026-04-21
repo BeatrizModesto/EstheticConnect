@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinica Meraki</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="/public/profissionais.css">
+</head>
+<body>
+   <div id="principal">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="/imagens/LogoDourada.png" alt="Logo Meraki" style="height: 60px;">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="/app/views/home.ejs">Home</a></li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="servicosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Procedimentos
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="servicosDropdown">
+              <li><a class="dropdown-item" href="/app/views/Proc_Corporal.ejs">Corporais</a></li>
+              <li><a class="dropdown-item" href="/app/views/Proc_Facial.ejs">Faciais</a></li>
+              <li><a class="dropdown-item" href="/app/views/Proc_Capilares.ejs">Capilares</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="/app/views/Profissionais.html">Profissionais</a></li>
+          <li class="nav-item"><a class="nav-link" href="/app/views/blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="/app/views/Outros_Servicos.html">Outros Serviços</a></li>
+         
+        </ul>
+      </div>
+
+      <div class="social-icons d-none d-lg-flex">
+        <a href="https://www.instagram.com/clinicamerakicampinas/?hl=pt-br"><i class="bi bi-instagram mx-2"></i></a>
+        <a href="https://api.whatsapp.com/send/?phone=5519971462301&text&type=phone_number&app_absent=0"><i class="bi bi-whatsapp mx-2"></i></a>
+        <a href="https://www.facebook.com/Clinica.Meraki.estetica.e.saude/"><i class="bi bi-facebook mx-2"></i></a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="principal">
+
+  <!-- Imagem  -->
+  <img id="capa-img" src="/imagens/CapaProfissionais.jpg" alt="Imagem de capa da página de profissionais">
+  <div class="texto">
+    <span id="capa-titulo"></span><br>
+    <p id="capa-subtitulo">Conheça nossos Profissionais</p>
+  </div>
+</div>
+
+
+<div id="lista-profissionais">
+<% for (let i = 0; i < profissionais.length; i++) { %>
+
+```
+<div class="prof-card">
+
+  <!-- Imagem -->
+
+  <div class="prof-img-box">
+    <img 
+      src="<%= profissionais[i].imagem_profissional %>" 
+      alt="Foto de <%= profissionais[i].nome %>"
+    >
+  </div>
+
+  <!-- Texto -->
+  <div class="prof-text">
+    <h2><%= profissionais[i].nome %></h2>
+
+    <p>
+      <%= profissionais[i].descricao_profissional %>
+    </p>
+
+    <!-- Lista de procedimentos -->
+    <ul>
+      <% let procedimentos = profissionais[i].procedimentos_trabalhados.split(','); %>
+      <% for (let j = 0; j < procedimentos.length; j++) { %>
+        <li><%= procedimentos[j] %></li>
+      <% } %>
+    </ul>
+  </div>
+
+</div>
+```
+
+<% } %>
+
+</div>
+<div class="duvida-section">
+
+ <form action="/duvida/salvar" method="POST" class="form-duvida">
+
+    <label>Nome completo</label>
+    <input type="text" name="nome_completo" required>
+
+    <label>Email</label>
+    <input type="email" name="email" required>
+
+    <label>Telefone</label>
+    <input type="text" name="telefone">
+
+    <label>Sua dúvida</label>
+    <textarea name="duvida" required></textarea>
+
+    <button type="submit">Enviar</button>
+
+ </form>
+
+</div>
+<br>
+<br>
+
+<!-- Rodapé -->
+<footer id="footer" class="text-white py-4">
+  <div class="footer-content">
+    <div class="footer-info text-center">
+
+      <img src="/WEB/Imagens/LogoDourada.png" class="footer-logo" alt="Clínica Meraki">
+
+      <p class="mt-3 mb-1"><i class="bi bi-geo-alt-fill"></i> Av. Wellman Galvão de França Rangel, 1295 - Swiss Park, Campinas/SP</p>
+      <p class="mb-1"><i class="bi bi-whatsapp"></i> (19) 97146-2301</p>
+      <p class="mb-0"><i class="bi bi-envelope-fill"></i> clinicamercampinas.com.br</p>
+
+    </div>
+<small>© 2025 Clínica Meraki — Todos os direitos reservados.</small>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
