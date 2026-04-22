@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Clínica Meraki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Seu CSS -->
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- NAVBAR (exemplo simples) -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="/WEB/Imagens/LogoDourada.png" alt="Logo Meraki" style="height: 60px;">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="servicosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Procedimentos
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="servicosDropdown">
+              <li><a class="dropdown-item" href="/procedimentoscorporais">Corporais</a></li>
+              <li><a class="dropdown-item" href="/procedimentosfaciais">Faciais</a></li>
+              <li><a class="dropdown-item" href="/procedimentoscapilares">Capilares</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="/profissionais">Profissionais</a></li>
+          <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="/outrosservicos">Outros Serviços</a></li>
+         
+        </ul>
+      </div>
+
+      <div class="social-icons d-none d-lg-flex">
+        <a href="https://www.instagram.com/clinicamerakicampinas/?hl=pt-br"><i class="bi bi-instagram mx-2"></i></a>
+        <a href="https://api.whatsapp.com/send/?phone=5519971462301&text&type=phone_number&app_absent=0"><i class="bi bi-whatsapp mx-2"></i></a>
+        <a href="https://www.facebook.com/Clinica.Meraki.estetica.e.saude/"><i class="bi bi-facebook mx-2"></i></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CARROSSEL -->
+  <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+
+      <% carousel.forEach((item, i) => { %>
+        <div class="carousel-item <%= i === 0 ? 'active' : '' %>">
+          <img src="<%= item.imagem %>" class="d-block w-100" alt="<%= item.titulo %>">
+
+          <div class="carousel-caption d-none d-md-block">
+            <h5><%= item.titulo %></h5>
+            <p><%= item.descricao %></p>
+          </div>
+        </div>
+      <% }) %>
+
+    </div>
+
+    <!-- Botões -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+  <!-- DESCRIÇÃO -->
+  <section class="container mt-5">
+    <h2 class="text-center mb-4">Sobre a Clínica</h2>
+
+    <div class="descricao-conteudo text-center">
+
+      <% 
+        const partes = descricao.split(". ").map(p => p.trim()).filter(p => p.length > 0);
+      %>
+
+      <p><%= partes.slice(0,4).join(". ") + "." %></p>
+      <br>
+      <p><%= partes.slice(4).join(". ") + "." %></p>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="text-center mt-5 mb-3">
+    <p>&copy; 2026 Clínica Meraki - Todos os direitos reservados</p>
+  </footer>
+
+  <!-- VLibras -->
+  <script>
+    const vlibrasContainer = document.createElement("div");
+    vlibrasContainer.setAttribute("vw", "");
+    vlibrasContainer.classList.add("enabled");
+    vlibrasContainer.innerHTML = `
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    `;
+    document.body.appendChild(vlibrasContainer);
+
+    const scriptVLibras = document.createElement("script");
+    scriptVLibras.src = "https://vlibras.gov.br/app/vlibras-plugin.js";
+    scriptVLibras.onload = () => {
+      new window.VLibras.Widget('https://vlibras.gov.br/app');
+    };
+    document.body.appendChild(scriptVLibras);
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
