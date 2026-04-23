@@ -1,5 +1,5 @@
 import { home } from '../controllers/home.js';
-import { (aqui vai as importações } from '../controllers/home.js';
+import {getDuvida, getAgendamento } from '../controllers/home.js';
 
 export function registerRoutes(app) {
     app.get('/', (req, res) => {
