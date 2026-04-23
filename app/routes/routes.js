@@ -1,25 +1,34 @@
-const express = require('express');
-const router = express.Router();
-const HomeController = require('../controllers/HomeController');
-const procedimentosController = require('../controllers/procedimentosController');
-const profissionaisController = require('../controllers/profissionaisController');
-const agendamentoController = require('../controllers/agendamentoController');
-const blogController = require('../controllers/blogController');
-const outrosController = require('../controllers/outrosController');
+import { home } from '../controllers/home.js';
+import { (aqui vai as importações } from '../controllers/home.js';
 
-// cada página do HTML
-router.get('/', HomeController.home);
-router.get('/home', HomeController.home);
-router.get('/procedimentoscorporais', procedimentosController.Proc_Corporais);
-router.get('/procedimentosfaciais', procedimentosController.Proc_Faciais);
-router.get('/procedimentoscapilares', procedimentosController.Proc_Capilares);
-router.get('/outrosservicos', outrosController.Outros_Servicos);
-router.get('/profissionais', profissionaisController.profissionais);
-router.get('/agendamento', agendamentoController.Agendamento);
-router.get('/drenagem', procedimentosController.Drenagem);
-router.get('/rinomodelacao', procedimentosController.Rinomodelação);
-router.get('/bioestimulador', procedimentosController.Bioestimulador);
-router.get('/blog', blogController.blog);
+export function registerRoutes(app) {
+    app.get('/', (req, res) => {
+        home(req, res);
+    });
+    app.get('/procedimentosfaciais', (req, res) => {
+        res.render('procedimentosfaciais.ejs');
+    });
+
+     app.get('/procedimentoscorporais', (req, res) => {
+        res.render('procedimentoscorporais.ejs');
+    });
+
+   app.get('/procedimentoscapilares', (req, res) => {
+        res.render('procedimentoscapilares.ejs');
+    });
+
+     app.get('/profissionais', (req, res) => {
+        res.render('profissionais.ejs');
+    });
+
+    app.post('/agendamento', getAgendamento);
+
+    app.post('/profissionais/duvidas', getDuvida);
 
 
-module.exports = router;
+    // app.get('*', (req, res) => {
+    //     res.render('notfound.ejs');
+    // });
+   
+    
+}
