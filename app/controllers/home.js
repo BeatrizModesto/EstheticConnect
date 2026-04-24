@@ -1,4 +1,4 @@
-import { getCarousel, getDescricao, addAgendamentoModel } from "../models/home.js";
+import { getCarousel, getDescricao, addAgendamentoModel, addDuvidaModel, listarProfissionais } from "../models/home.js";
 import Joi from "joi";
 
 export async function home(req, res) {
@@ -45,3 +45,26 @@ const schema = Joi.object({
   tipo: Joi.string().required(),
   data_desejada: Joi.date().required(),
 });
+
+
+export async function getProfissionais(req, res) {
+  try {
+    const profissionais = await listarProfissionais();
+    res.render('Profissionais.ejs', { profissionais });
+    } catch (erro) {
+      console.error(erro);
+      res.status(500).send('Erro ao carregar profissionais');
+    }
+}
+
+
+export async function getDuvida(req, res) {
+  try {
+    await addDuvidaModel(req.body);
+
+    res.redirect('/profissionais');
+  } catch (erro) {
+    console.error(erro);
+    res.status(500).send('Erro ao salvar dúvida');
+  }
+}
