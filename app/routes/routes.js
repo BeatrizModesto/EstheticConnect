@@ -1,5 +1,5 @@
 import { home } from '../controllers/home.js';
-import {getDuvida, getAgendamento } from '../controllers/home.js';
+import { addAgendamento} from '../controllers/home.js';
 
 export function registerRoutes(app) {
     app.get('/', (req, res) => {
@@ -17,11 +17,25 @@ export function registerRoutes(app) {
         res.render('procedimentoscapilares.ejs');
     });
 
+    app.get('/outrosservicos', (req, res) => {
+        res.render('outrosservicos.ejs');
+    });
+
      app.get('/profissionais', (req, res) => {
         res.render('profissionais.ejs');
     });
 
-    app.post('/agendamento', getAgendamento);
+    app.post('/agendamento', addAgendamento);
+
+    // app.post('/profissionais/duvidas', getDuvida);
+
+
+    // app.get('*', (req, res) => {
+    //     res.render('notfound.ejs');
+    // });
+   
+    
+}
 
     app.post('/profissionais/duvidas', getDuvida);
 
