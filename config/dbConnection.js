@@ -4,7 +4,7 @@ const dbConfig = {
     host: 'localhost',
     database: 'Esthetic_Connect',
     user: 'root',
-    password: 'Bola2005.', 
+    password: 'ifsp', 
 };
 
 const pool = mysql.createPool(dbConfig);
