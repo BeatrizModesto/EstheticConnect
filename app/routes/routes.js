@@ -1,4 +1,4 @@
-import { getDuvida, home } from '../controllers/home.js';
+import {getDuvida, getProfissionais, home } from '../controllers/home.js';
 import { addAgendamento} from '../controllers/home.js';
 
 export function registerRoutes(app) {
@@ -21,9 +21,7 @@ export function registerRoutes(app) {
         res.render('outrosservicos.ejs');
     });
 
-     app.get('/profissionais', (req, res) => {
-        res.render('profissionais.ejs');
-    });
+     app.get('/profissionais', getProfissionais);
 
     app.get('/blog',(req,res)=>{
         res.render('blog.ejs')
