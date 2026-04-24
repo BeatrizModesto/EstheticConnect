@@ -1,4 +1,4 @@
-import { home } from '../controllers/home.js';
+import { getDuvida, home } from '../controllers/home.js';
 import { addAgendamento} from '../controllers/home.js';
 
 export function registerRoutes(app) {
@@ -29,9 +29,12 @@ export function registerRoutes(app) {
         res.render('blog.ejs')
     });
 
-    app.post('/agendamento', addAgendamento);
+   app.post('/duvida/salvar', getDuvida);
+    // app.get('*', (req, res) => {
+    //     res.render('notfound.ejs');
+    // });
 
-    // app.post('/profissionais/duvidas', getDuvida);
+    app.post('/agendamento', addAgendamento);
 
 
     // app.get('*', (req, res) => {
@@ -40,13 +43,4 @@ export function registerRoutes(app) {
    
     
 }
-
-    app.post('/profissionais/duvidas', getDuvida);
-
-
-    // app.get('*', (req, res) => {
-    //     res.render('notfound.ejs');
-    // });
-   
-    
 
