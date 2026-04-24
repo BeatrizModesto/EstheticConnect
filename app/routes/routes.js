@@ -25,6 +25,10 @@ export function registerRoutes(app) {
         res.render('profissionais.ejs');
     });
 
+    app.get('/blog',(req,res)=>{
+        res.render('blog.ejs')
+    });
+
     app.post('/agendamento', addAgendamento);
 
     // app.post('/profissionais/duvidas', getDuvida);
@@ -45,4 +49,4 @@ export function registerRoutes(app) {
     // });
    
     
-}
+
