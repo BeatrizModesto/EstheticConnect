@@ -4,10 +4,11 @@ import ProcCapilarModel from '../models/ProcCapilarModel.js';
 
 export async function Proc_Faciais(req, res) {
   try {
+
     const procedimentos = await ProcFacialModel.listarProcedimentos();
     const antesDepois = await ProcFacialModel.listarAntesDepois();
 
-    res.render('proc_faciais', {
+    res.render('procedimentosfaciais', {
       procedimentos,
       antesDepois
     });
