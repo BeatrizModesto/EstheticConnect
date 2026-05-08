@@ -6,7 +6,7 @@ export async function home(req, res) {
     const carousel = await getCarousel();
     const descricao = await getDescricao();
 
-    res.render("home.ejs", {
+    res.render("home", {
       carousel,
       descricao
     });
