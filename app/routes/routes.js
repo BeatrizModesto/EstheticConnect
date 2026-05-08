@@ -1,25 +1,20 @@
 import {getDuvida, getProfissionais, home } from '../controllers/home.js';
 import { addAgendamento} from '../controllers/home.js';
+import { Proc_Faciais, Proc_Corporais, Proc_Capilares, } from '../controllers/procedimentosController.js';
+import { OutrosServicos } from '../controllers/outrosServicosController.js';
+
 
 export function registerRoutes(app) {
     app.get('/', (req, res) => {
         home(req, res);
     });
-    app.get('/procedimentosfaciais', (req, res) => {
-        res.render('procedimentosfaciais.ejs');
-    });
+   app.get('/procedimentosfaciais', Proc_Faciais);
+   
+    app.get('/procedimentoscorporais', Proc_Corporais);
 
-     app.get('/procedimentoscorporais', (req, res) => {
-        res.render('procedimentoscorporais.ejs');
-    });
+   app.get('/procedimentoscapilares', Proc_Capilares);
 
-   app.get('/procedimentoscapilares', (req, res) => {
-        res.render('procedimentoscapilares.ejs');
-    });
-
-    app.get('/outrosservicos', (req, res) => {
-        res.render('outrosservicos.ejs');
-    });
+    app.get('/outrosservicos', OutrosServicos);
 
      app.get('/profissionais', getProfissionais);
 
@@ -32,7 +27,15 @@ export function registerRoutes(app) {
     //     res.render('notfound.ejs');
     // });
 
+   app.get('/agendamento', (req, res) => {
+        res.render('agendamento', {
+            agendamento: {},
+            errors: []
+        });
+    });
+
     app.post('/agendamento', addAgendamento);
+
 
 
     // app.get('*', (req, res) => {
