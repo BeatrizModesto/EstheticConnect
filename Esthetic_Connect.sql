@@ -206,3 +206,61 @@ telefone_agendamento VARCHAR(20) NOT NULL,
 tipo ENUM('consulta', 'capilar', 'facial', 'corporal', 'esmalteria') NOT NULL,
 data_desejada DATE
 );
+
+
+CREATE TABLE outros_servicos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    icone_outros VARCHAR(255),
+    titulo_outros VARCHAR(100),
+    descricao_outros TEXT
+);
+
+INSERT INTO outros_servicos 
+(icone_outros, titulo_outros, descricao_outros)
+VALUES
+(
+'bi bi-heart',
+'Roupas',
+'Coleção exclusiva com peças selecionadas para todos os estilos. Ideal para quem busca estilo aliado à praticidade no dia a dia'
+),
+
+(
+'bi bi-heart',
+'Esmalteria',
+'Serviços disponíveis:<br><br><strong>Manicure e Pedicure:</strong><br>• Manicure — R$ 40,00<br>• Pedicure — R$ 45,00<br>• Esmaltação — R$ 20,00'
+),
+
+(
+'bi bi-heart',
+'Suplementos Alimentares',
+'<strong>Porque escolher suplementos em pó ?</strong><br> Absorção mais rápida, fácil de misturar, ideal para o dia a dia.'
+);
+
+
+CREATE TABLE antes_depois_outros (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titulo_antes_outros VARCHAR(150),
+    imagem_antes_outros VARCHAR(255),
+    descricao_antes_outros TEXT
+);
+
+INSERT INTO antes_depois_outros
+(titulo_antes_outros, imagem_antes_outros, descricao_antes_outros)
+VALUES
+(
+'Roupas',
+'/imagens/Roupas.jpeg',
+'Variedade de opções, venha conferir nosso Bazar !'
+),
+
+(
+'Esmalteria',
+'/imagens/Esmalteria.jpeg',
+'Manicure, pedicure e muito carinho em cada cuidado !'
+),
+
+(
+'Suplementos Alimentares',
+'/imagens/Suplementos.jpeg',
+'Praticidade e resultados !'
+);
