@@ -18,9 +18,7 @@ export function registerRoutes(app) {
 
      app.get('/profissionais', getProfissionais);
 
-    app.get('/blog',(req,res)=>{
-        res.render('blog.ejs')
-    });
+    app.get('/blog', )
 
    app.post('/duvida/salvar', getDuvida);
     // app.get('*', (req, res) => {
