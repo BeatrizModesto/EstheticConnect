@@ -1,5 +1,6 @@
 import db from '../../config/dbConnection.js';
 
+
 export async function listarProfissionais() {
   const [rows] = await db.query('SELECT * FROM profissionais');
   return rows;

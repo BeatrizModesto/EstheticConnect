@@ -48,7 +48,7 @@ imagem_antes_corporais VARCHAR(255),
 descricao_antes_corporais TEXT
 );
 
-INSERT INTO antes_depois (titulo_antes_depois_corporais , imagem_antes_corporais,descricao_antes_corporais) VALUES
+INSERT INTO antes_depois_corporais (titulo_antes_depois_corporais , imagem_antes_corporais,descricao_antes_corporais) VALUES
 ('Criolipólise', '/imagens/Criolipolise.jpeg', 'Redução visível de gordura localizada, melhora do contorno corporal e diminuição de medidas após o processo natural de eliminação das células adiposas.'),
 ('Lipocavitação', '/imagens/Lipocavitação.PNG', 'Aparecimento de contornos mais definidos, redução de gordura localizada e melhora rápida nas medidas devido à quebra das células de gordura pelo ultrassom.'),
 ('Lavieen', '/imagens/Lavien.jpeg', 'Clareamento de manchas, melhora do melasma, uniformização do tom da pele e textura mais lisa e luminosa com efeito glow progressivo.'),

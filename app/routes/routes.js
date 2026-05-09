@@ -1,7 +1,9 @@
-import {getDuvida, getProfissionais, home } from '../controllers/home.js';
+import { home } from '../controllers/home.js';
 import { addAgendamento} from '../controllers/home.js';
 import { Proc_Faciais, Proc_Corporais, Proc_Capilares, } from '../controllers/procedimentosController.js';
 import { OutrosServicos } from '../controllers/outrosServicosController.js';
+import { getProfissionais, getDuvida } from '../controllers/profissionais.js';
+import { getPost } from '../controllers/blog.js';
 
 
 export function registerRoutes(app) {
@@ -18,7 +20,7 @@ export function registerRoutes(app) {
 
      app.get('/profissionais', getProfissionais);
 
-    app.get('/blog', )
+    app.get('/blog', getPost );
 
    app.post('/duvida/salvar', getDuvida);
     // app.get('*', (req, res) => {

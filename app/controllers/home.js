@@ -1,4 +1,4 @@
-import { getCarousel, getDescricao, addAgendamentoModel, addDuvidaModel, listarProfissionais } from "../models/home.js";
+import { getCarousel, getDescricao, addAgendamentoModel} from "../models/home.js";
 import Joi from "joi";
 
 export async function home(req, res) {
