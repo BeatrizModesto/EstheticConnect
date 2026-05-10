@@ -32,14 +32,15 @@ Antes de começar, você precisa ter instalado:
 
 ## 🔧 Instalação
 
-### 1️⃣ Clone o repositório
+### 1️⃣ Clone o repositório ou então baixe o projeto no formato zip 
 ```bash
-git clone https://github.com/SEU-USUARIO/Clinica_Meraki.git
+https://github.com/BeatrizModesto/EstheticConnect.git
 ```
 
 ### 2️⃣ Entre na pasta do projeto
 ```bash
-cd Clinica_Meraki
+- cd EstheticConnect 
+- ou extraia o arquivo zip e abra a pasta correspondente com o vscode.
 ```
 
 ### 3️⃣ Abra no VS Code
@@ -49,14 +50,17 @@ code .
 
 ### 4️⃣ Execute o projeto
 
-✔ **Com Live Server:**  
-- Clique com o botão direito no arquivo `index.html`  
-- Selecione **"Open with Live Server"**
+✔ Instale pelo terminal :   
 
-✔ **Sem Live Server:**  
-- Abra o arquivo `index.html` clicando duas vezes
+- npm install express mysql2 ejs.
+- No arquivo dbConnection altere o campo correspondente com a sua senha do Banco de Dados.
+- Vá até o Banco de Dados mysql e execute os scripts de criação e inserção de tabelas e dados.
 
----
+✔ Execute : 
+
+- node index.js
+- abra o endereço http://localhost:3000/
+
 
 ## ⚙️ Executando os testes
 
@@ -67,7 +71,7 @@ Este projeto não possui testes automatizados, mas você pode testar manualmente
 - Funcionamento dos botões e links  
 - Carregamento das imagens  
 - Organização dos componentes  
-- **Fluxo de Agendamento Online** (se implementado)
+
 
 ---
 
@@ -81,56 +85,16 @@ O projeto também considera boas práticas de acessibilidade, incluindo:
 - **Navegação simples e intuitiva**, facilitando o uso para todos os públicos;
 - **Textos alternativos** em todas as imagens (`alt="descrição"`), garantindo clareza para leitores de tela;
 
-## 📦 Implantação — Firebase Hosting
-
-A implantação do projeto é feita com **Firebase Hosting**, que permite hospedar sites estáticos de forma rápida e segura.
-
-### 🔥 Como implantamos no Firebase
-
-1. Instale o Firebase CLI:
-```bash
-npm install -g firebase-tools
-```
-
-2. Faça login:
-```bash
-firebase login
-```
-
-3. Inicialize o projeto:
-```bash
-firebase init
-```
-
-4. Escolha **Hosting**  
-5. Selecione ou crie um projeto Firebase  
-6. Defina a pasta de publicação como:
-```
-dist
-```
-ou  
-```
-public
-```
-
-7. Realize o deploy:
-```bash
-firebase deploy
-```
-
-O Firebase gerará automaticamente um link público.
 
 ---
 
 ## 🛠️ Construído com
 
 - **HTML5** – estrutura  
-- **CSS3** – design e responsividade  
+- **CSS3 e bootstrap** – design e responsividade  
 - **JavaScript** – interações  
-- **JSON** – armazenamento simples  
-- **Firebase** – banco de dados em nuvem  
+- **Mysql** – banco de dados  
 - **VS Code** – editor  
-- **Live Server** – testes locais  
 
 ---
 
