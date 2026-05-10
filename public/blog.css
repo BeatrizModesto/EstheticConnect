@@ -1,10 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
-body {
-margin: 0;
-font-family: 'Montserrat', sans-serif;
-background-color: #fff;
-}
-
 /* NAVBAR */
 .navbar {
   background-color:  rgba(0, 0, 0, 0.6);
@@ -39,24 +32,26 @@ background-color: #fff;
 .navbar-toggler-icon {
   filter: invert(1);
 }
+.social-icons i {
+  color: #fff;
+}
 
 .principal img {
   width: 100%;
-  height: 550px;
+  height: 850px;
   object-fit: cover;
   filter: brightness(85%);
 }
 
 .texto {
   position: absolute;
-  top: 60%;
+  top: 98%;
   left: 10%;
-  background-color: rgba(255, 255, 255, 0.25);
-  padding: 25px 35px;
-  font-family: 'Cinzel Decorative', cursive;
-  font-size: 50px;
-  color: #f5c742;
-  line-height: 1.1;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.3); 
+  padding: 30px 40px;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
 }
 
 /* Subtítulo */
@@ -207,6 +202,6 @@ background-color: #fff;
   }
 
   .blog-text h2::after {
-    margin: 8px auto 0 auto;/* centraliza a linha */
+    margin: 8px auto 0 auto;
   }
 }
