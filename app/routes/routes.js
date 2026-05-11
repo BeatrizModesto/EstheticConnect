@@ -23,9 +23,7 @@ export function registerRoutes(app) {
     app.get('/blog', getPost );
 
    app.post('/duvida/salvar', getDuvida);
-    // app.get('*', (req, res) => {
-    //     res.render('notfound.ejs');
-    // });
+   
 
    app.get('/agendamento', (req, res) => {
         res.render('agendamento', {
