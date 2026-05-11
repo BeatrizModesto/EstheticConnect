@@ -17,7 +17,7 @@ export async function getDuvida(req, res) {
   const { error } = schema.validate(req.body);
     if (error) {
     return res.render('profissionais.ejs', {
-      agendamento: req.body,
+      profissionais: req.body,
       errors: error.details
     });
 
