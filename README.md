@@ -1,145 +1,157 @@
-# 🌸 Clinica_Meraki - Landing Page
+🌸 Clínica Meraki - Landing Page
+<img src="/imagens/ReadMe.png" alt="Home da Clínica Meraki" width="880"/>
+📌 Sobre o Projeto
 
+O projeto Clínica Meraki foi desenvolvido como Projeto de Extensão 2026 com o objetivo de criar a presença digital de uma clínica de estética que ainda não possuía plataforma online.
 
-<img src="/WEB/Imagens/ReadMe.png" alt="Home" width="880"/>
+A aplicação funciona como uma landing page interativa, permitindo que clientes conheçam os serviços oferecidos, encontrem informações de contato e realizem agendamentos de forma prática e intuitiva.
 
+🎯 Objetivo
 
-## • Projeto de Extensão 2026 ✨
----
+O projeto busca resolver a dificuldade de divulgação e comunicação da clínica com seus clientes, oferecendo:
 
-## 📌 Descrição do Projeto
+- Divulgação dos serviços estéticos;
+- Melhor comunicação com clientes;
+- Facilidade de navegação;
+- Responsividade para dispositivos móveis;
+- Maior acessibilidade digital.
+  
+🛠️ Tecnologias Utilizadas
+- HTML5 → Estrutura das páginas;
+- CSS3 → Estilização;
+- Bootstrap → Responsividade e layout;
+- JavaScript → Interações e funcionalidades;
+- Node.js → Servidor da aplicação;
+- Express → Gerenciamento de rotas;
+- EJS → Renderização de páginas dinâmicas;
+- MySQL → Banco de dados;
+- VS Code → Ambiente de desenvolvimento.
+  
+📋 Pré-requisitos
 
-Desenvolvendo uma landing page para uma clínica de estética que até então não possuía presença online. O objetivo é criar uma plataforma funcional que ajude a promover a clínica, atrair clientes e melhorar a comunicação, oferecendo informações claras sobre serviços, contato e formas de agendamento.
+ Antes de executar o projeto, é necessário ter instalado:
 
----
+- Node.js
+- Git
+- MySQL Server
+- VS Code (opcional)
+- Extensão Live Server (opcional)
+  
+⚙️ Instalação e Configuração
 
-## 🚀 Como executar o projeto na sua máquina
+1️⃣ Clone o repositório
+  git clone https://github.com/BeatrizModesto/EstheticConnect.git
+  
+2️⃣ Acesse a pasta do projeto
+  cd EstheticConnect
+  
+3️⃣ Instale as dependências
+  npm install
 
-Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
+Ou instale manualmente:
 
----
+  npm install express mysql2 ejs
 
-## 📋 Pré-requisitos
+4️⃣ Configure o banco de dados
 
-Antes de começar, você precisa ter instalado:
+  Abra o MySQL;
+- Execute os scripts SQL de criação das tabelas;
+- Execute os scripts de inserção de dados;
+- No arquivo dbConnection, altere:
+- usuário;
+- senha;
+- nome do banco de dados.
+  
+🚀 Como Executar o Projeto
 
-- **Git**
-- **Navegador (Chrome, Edge, Firefox…)**
-- **VS Code ou outro editor**
-- **(Opcional) Live Server do VS Code**
+Execute o servidor:
 
----
+  node index.js
 
-## 🔧 Instalação
+  Depois abra no navegador:
 
-### 1️⃣ Clone o repositório
-```bash
-git clone https://github.com/SEU-USUARIO/Clinica_Meraki.git
-```
+  http://localhost:3000
+  
+📱 Exemplos de Uso
 
-### 2️⃣ Entre na pasta do projeto
-```bash
-cd Clinica_Meraki
-```
+  O sistema permite:
 
-### 3️⃣ Abra no VS Code
-```bash
-code .
-```
+- Visualizar procedimentos estéticos;
+- Navegar entre páginas da clínica;
+- Consultar informações de contato;
+- Realizar agendamentos;
+- Utilizar recursos de acessibilidade.
+  
+♿ Acessibilidade
 
-### 4️⃣ Execute o projeto
+O projeto considera boas práticas de acessibilidade, incluindo:
 
-✔ **Com Live Server:**  
-- Clique com o botão direito no arquivo `index.html`  
-- Selecione **"Open with Live Server"**
+- Suporte a LIBRAS com VLibras;
+- Contraste adequado entre texto e fundo;
+- Navegação intuitiva;
+- Responsividade;
+- Textos alternativos em imagens (alt="");
+- Melhor experiência para leitores de tela.
+  
+📂 Estrutura de Pastas
+EstheticConnect/
+│
+├── app/
+│   ├── controllers/
+│   ├── views/
+│   ├── routes/
+│   └── models/
+│
+├── public/
+│   ├── css/
+│   ├──  imagens/
+│   
+│
+├── config/
+│   |── dbconnection.js
+│   ├──  server.js
+├── index.js
+├── package.json
+└── README.md
+🧪 Testes
 
-✔ **Sem Live Server:**  
-- Abra o arquivo `index.html` clicando duas vezes
+O projeto não possui testes automatizados no momento.
 
----
+Os testes podem ser realizados manualmente verificando:
 
-## ⚙️ Executando os testes
+- Responsividade;
+- Navegação;
+- Funcionamento dos botões;
+- Conexão com banco de dados;
+- Carregamento das imagens;
+- Formulários e agendamentos.
+  
+🤝 Contribuição
 
-Este projeto não possui testes automatizados, mas você pode testar manualmente:
+Contribuições são bem-vindas!
 
-- Responsividade (celular, tablet, desktop)
-- Navegação do menu  
-- Funcionamento dos botões e links  
-- Carregamento das imagens  
-- Organização dos componentes  
-- **Fluxo de Agendamento Online** (se implementado)
+Para contribuir:
 
----
+- Faça um fork do projeto;
+- Crie uma branch:
+- git checkout -b minha-feature
+- Faça suas alterações;
+  
+Envie um commit:
+- git commit -m "Minha contribuição"
+  
+Faça um push:
+- git push origin minha-feature
+- Abra um Pull Request.
+  
+📄 Licença
 
--- 
-## 🤟 Acessibilidade
+Este projeto foi desenvolvido para fins acadêmicos e educacionais.
 
-O projeto também considera boas práticas de acessibilidade, incluindo:
+✒️ Autoras
+Beatriz Modesto
+Beatriz Lemos
 
-- **Suporte a LIBRAS**, utilizando ferramentas como **VLibras** para tradução em língua de sinais;
-- **Contraste adequado** entre texto e fundo;
-- **Navegação simples e intuitiva**, facilitando o uso para todos os públicos;
-- **Textos alternativos** em todas as imagens (`alt="descrição"`), garantindo clareza para leitores de tela;
-
-## 📦 Implantação — Firebase Hosting
-
-A implantação do projeto é feita com **Firebase Hosting**, que permite hospedar sites estáticos de forma rápida e segura.
-
-### 🔥 Como implantamos no Firebase
-
-1. Instale o Firebase CLI:
-```bash
-npm install -g firebase-tools
-```
-
-2. Faça login:
-```bash
-firebase login
-```
-
-3. Inicialize o projeto:
-```bash
-firebase init
-```
-
-4. Escolha **Hosting**  
-5. Selecione ou crie um projeto Firebase  
-6. Defina a pasta de publicação como:
-```
-dist
-```
-ou  
-```
-public
-```
-
-7. Realize o deploy:
-```bash
-firebase deploy
-```
-
-O Firebase gerará automaticamente um link público.
-
----
-
-## 🛠️ Construído com
-
-- **HTML5** – estrutura  
-- **CSS3** – design e responsividade  
-- **JavaScript** – interações  
-- **JSON** – armazenamento simples  
-- **Firebase** – banco de dados em nuvem  
-- **VS Code** – editor  
-- **Live Server** – testes locais  
-
----
-
-## ✒️ Autores
-
-- **Beatriz Modesto** 
-- **Beatriz Lemos** 
----
-
-Obrigada por visitar o projeto! 💗  
-Sinta-se à vontade para contribuir ou deixar sugestões!
+💗 Obrigada por visitar o projeto!
+Sinta-se à vontade para contribuir ou deixar sugestões.
 
