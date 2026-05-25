@@ -264,3 +264,11 @@ VALUES
 '/imagens/Suplementos.jpeg',
 'Praticidade e resultados !'
 );
+
+
+CREATE TABLE login_administrador (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL
+);
+
