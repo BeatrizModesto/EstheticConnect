@@ -7,7 +7,7 @@ export async function getProfissionais(req, res) {
     res.render('Profissionais.ejs', { profissionais });
     } catch (erro) {
       console.error(erro);
-      res.status(500).send('Erro ao carregar profissionais');
+      res.status(500).send('Erro ao carregar a lista de profissionais:');
     }
 }
 
@@ -28,8 +28,11 @@ export async function getDuvida(req, res) {
 
     res.redirect('/profissionais');
   } catch (erro) {
-    console.error(erro);
-    res.status(500).send('Erro ao salvar dúvida');
+    console.error("Erro ao salvar a dúvida do usuário:", erro);
+
+    res.status(500).send(
+      "Não foi possível enviar sua dúvida no momento. Tente novamente mais tarde."
+    );
   }
 }
 

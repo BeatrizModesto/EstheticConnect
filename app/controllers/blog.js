@@ -7,7 +7,10 @@ export const getPost = async (req, res) => {
     res.render("blog", { blog });
 
   } catch (erro) {
-    console.error(erro);
-    res.status(500).send("Erro");
+    console.error("Erro ao carregar os posts do blog:", erro);
+
+    res.status(500).send(
+      "Ocorreu um erro ao carregar os posts do blog. Tente novamente mais tarde."
+    );
   }
 };
