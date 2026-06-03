@@ -1,6 +1,7 @@
 import express from 'express';
+import dotenv from 'dotenv';
 const app = express();
-const port = process.env.port || 3000;
+const port = process.env.port || 4000;
 
 app.set('view engine', 'ejs');
 app.set('views', './app/views');
