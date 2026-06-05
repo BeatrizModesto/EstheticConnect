@@ -34,7 +34,23 @@ export function registerRoutes(app) {
 
     app.post('/agendamento', addAgendamento);
 
+//admin routes
 
+        app.get('/login', telaLogin);
+
+        app.post('/login', login);
+
+        app.get('/admin', authAdmin, dashboard);
+
+        app.post('/admin/agendamento/:id/editar', authAdmin, atualizarAgendamento);
+
+        app.post('/admin/agendamento/:id/excluir', authAdmin, excluirAgendamento);
+
+        app.post('/admin/duvida/:id/editar',authAdmin, atualizarDuvida);
+
+        app.post('/admin/duvida/:id/excluir',authAdmin,excluirDuvida);
+
+    
 
     // app.get('*', (req, res) => {
     //     res.render('notfound.ejs');
