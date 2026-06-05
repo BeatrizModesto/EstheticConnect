@@ -4,6 +4,9 @@ import { Proc_Faciais, Proc_Corporais, Proc_Capilares, } from '../controllers/pr
 import { OutrosServicos } from '../controllers/outrosServicosController.js';
 import { getProfissionais, getDuvida } from '../controllers/profissionais.js';
 import { getPost } from '../controllers/blog.js';
+import {adduser} from '../controllers/primeiro_acessoController.js'
+import{ excluirAgendamento,excluirDuvida,atualizarAgendamento,atualizarDuvida, dashboard } from '../controllers/adminController.js'
+import { loginUser } from '../controllers/loginController.js';
 
 
 export function registerRoutes(app) {
@@ -34,11 +37,12 @@ export function registerRoutes(app) {
 
     app.post('/agendamento', addAgendamento);
 
-//admin routes
 
-        app.get('/login', telaLogin);
 
-        app.post('/login', login);
+
+        app.post('/primeiro-acesso', adduser);
+
+        app.post('/login', loginUser);
 
         app.get('/admin', authAdmin, dashboard);
 

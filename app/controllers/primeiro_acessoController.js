@@ -11,7 +11,7 @@ const saltRounds = 10;
 const passwordRegex =
     /^(?=.*[0-9])(?=.*[!@#$%^&*()_+={}\[\]:;"'<,>.?/|~`]).{5,}$/;
 
-const registerSchema = Joi.object({
+const Schema = Joi.object({
     email: Joi.string()
         .email({ tlds: { allow: false } })
         .required()
@@ -32,6 +32,8 @@ const registerSchema = Joi.object({
         }),
 });
 
+
+
 export const addUser = async (req, res) => {
     console.log('[Add User Controller]');
 
@@ -43,7 +45,7 @@ export const addUser = async (req, res) => {
         });
     }
 
-    const { error, value } = registerSchema.validate(req.body);
+    const { error, value } = Schema.validate(req.body);
 
     if (error) {
         return res.status(400).json({
