@@ -12,6 +12,14 @@ const passwordRegex =
     /^(?=.*[0-9])(?=.*[!@#$%^&*()_+={}\[\]:;"'<,>.?/|~`]).{5,}$/;
 
 const Schema = Joi.object({
+    nome: Joi.string()
+        .min(3)
+        .required()
+        .messages({
+            'string.min': 'O nome deve ter no mínimo 3 caracteres.',
+            'any.required': 'O nome é obrigatório.',
+        }),
+
     email: Joi.string()
         .email({ tlds: { allow: false } })
         .required()
@@ -59,9 +67,10 @@ export const addUser = async (req, res) => {
         const hashedPassword = await bcrypt.hash(value.password, saltRounds);
 
         const adminToSave = {
+            nome: value.nome,
             email: value.email,
             senha: hashedPassword,
-        };
+};
 
         const addedAdmin = await addAdministrador(adminToSave);
 

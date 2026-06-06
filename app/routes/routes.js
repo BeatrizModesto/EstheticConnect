@@ -37,8 +37,14 @@ export function registerRoutes(app) {
 
         app.post('/agendamento', addAgendamento);
 
-
-        app.post('/primeiro-acesso', addUser);
+        app.get('/primeiroAcesso', (req, res) => {
+           res.render('primeiroAcesso', {
+            errors: [],
+            user: {}
+            });
+        });
+        
+        app.post('/primeiroAcesso', addUser);
 
         app.post('/login', loginUser);
 
