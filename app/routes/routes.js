@@ -46,6 +46,13 @@ export function registerRoutes(app) {
         
         app.post('/primeiroAcesso', addUser);
 
+        app.get('/login', (req, res) => {
+           res.render('login', {
+            errors: [],
+            user: {}
+            });
+        });
+
         app.post('/login', loginUser);
 
         app.get('/admin', authAdmin, dashboard);
