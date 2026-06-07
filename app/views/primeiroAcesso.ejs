@@ -15,9 +15,21 @@
 
         <section class="card">
 
-            <img src="/imagens/LogoDourada.png" alt="Logo Meraki"class="logo">
+            <img
+                src="/imagens/LogoDourada.png"
+                alt="Logo Meraki"
+                class="logo"
+            >
 
             <h1>Crie sua conta</h1>
+
+            <% if (errors && errors.length > 0) { %>
+                <div class="alert alert-danger">
+                    <% errors.forEach(error => { %>
+                        <p><%= error %></p>
+                    <% }) %>
+                </div>
+            <% } %>
 
             <form action="/primeiroAcesso" method="POST">
 
@@ -28,6 +40,7 @@
                         type="text"
                         id="nome"
                         name="nome"
+                        value="<%= user?.nome || '' %>"
                         required
                     >
                 </div>
@@ -39,6 +52,7 @@
                         type="email"
                         id="email"
                         name="email"
+                        value="<%= user?.email || '' %>"
                         required
                     >
                 </div>

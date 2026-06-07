@@ -166,23 +166,30 @@ button:hover{
 button:active{
     transform:translateY(0);
 }
-
-.alert{
-    border-radius:14px;
-    padding:12px;
-    margin-bottom:20px;
-    font-size:.95rem;
+.alert-danger {
+    background-color: #f8d7da;
+    color: #842029;
+    border: 1px solid #f5c2c7;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 15px;
+    text-align: center;
 }
 
-.alert-danger{
-    background:#ffe6e6;
-    color:#8b0000;
+.alert-danger p {
+    margin: 0;
 }
 
-.alert-success{
-    background:#eaf8ea;
-    color:#006400;
+.alert-success {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    border: 1px solid #badbcc;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 15px;
+    text-align: center;
 }
+
 .primeiroAcesso{
     margin-top:1px;
     text-align:center;

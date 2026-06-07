@@ -31,63 +31,65 @@ const Schema = Joi.object({
     password: Joi.string()
         .min(5)
         .required()
-        .regex(passwordRegex)
+        .pattern(passwordRegex)
         .messages({
             'string.min': 'A senha deve ter no mínimo 5 caracteres.',
             'any.required': 'A senha é obrigatória.',
-            'string.regex.base':
+            'string.pattern.base':
                 'A senha deve incluir pelo menos um número e um símbolo.',
         }),
 });
 
-
-
 export const addUser = async (req, res) => {
     console.log('[Add User Controller]');
+    console.log('BODY:', req.body);
 
     if (!req.body) {
-        return res.status(400).json({
-            status: 'error',
-            code: 400,
-            message: 'Corpo da requisição não pode estar vazio.',
+        return res.status(400).render('primeiroAcesso', {
+            errors: ['Corpo da requisição não pode estar vazio.'],
+            user: {},
         });
     }
 
     const { error, value } = Schema.validate(req.body);
 
     if (error) {
-        return res.status(400).json({
-            status: 'error',
-            code: 400,
-            message: error.details[0].message,
+        console.log('VALIDATION ERROR:', error.details);
+
+        return res.status(400).render('primeiroAcesso', {
+            errors: [error.details[0].message],
+            user: req.body,
         });
     }
 
     try {
-        const hashedPassword = await bcrypt.hash(value.password, saltRounds);
+        const hashedPassword = await bcrypt.hash(
+            value.password,
+            saltRounds
+        );
 
         const adminToSave = {
             nome: value.nome,
             email: value.email,
             senha: hashedPassword,
-};
+        };
 
-        const addedAdmin = await addAdministrador(adminToSave);
+        await addAdministrador(adminToSave);
 
-        return res.status(201).json({
-            status: 'success',
-            code: 201,
-            message: 'Administrador cadastrado com sucesso.',
-            data: addedAdmin,
+        return res.render('login', {
+            success: 'Conta criada com sucesso!',
+            errors: [],
+            user: {},
         });
+
+       
+
     } catch (err) {
         console.error('[Add User Error]', err);
 
-        return res.status(500).json({
-            status: 'error',
-            code: 500,
-            message: 'Erro interno ao adicionar usuário.',
-            error: err.message,
+        return res.status(500).render('primeiroAcesso', {
+            errors: ['Erro interno ao adicionar usuário.'],
+            user: req.body,
         });
     }
 };
