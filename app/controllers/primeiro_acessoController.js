@@ -63,33 +63,34 @@ export const addUser = async (req, res) => {
     }
 
     try {
-        const hashedPassword = await bcrypt.hash(
+
+    const hashedPassword =
+        await bcrypt.hash(
             value.password,
             saltRounds
         );
 
-        const adminToSave = {
-            nome: value.nome,
-            email: value.email,
-            senha: hashedPassword,
-        };
+    const adminToSave = {
 
-        await addAdministrador(adminToSave);
+        nome: value.nome,
+        email: value.email,
+        senha: hashedPassword
 
-        return res.render('login', {
-            success: 'Conta criada com sucesso!',
-            errors: [],
-            user: {},
-        });
+    };
 
-       
+    await addAdministrador(adminToSave);
 
-    } catch (err) {
-        console.error('[Add User Error]', err);
+    return res.redirect('/login');
 
-        return res.status(500).render('primeiroAcesso', {
-            errors: ['Erro interno ao adicionar usuário.'],
-            user: req.body,
-        });
-    }
+} catch (err) {
+
+    console.error(err);
+
+    return res.render('primeiroAcesso', {
+
+        errors: ['Erro ao cadastrar administrador'],
+        user: req.body
+
+    });
+}
 };
