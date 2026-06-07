@@ -49,6 +49,7 @@ export function registerRoutes(app) {
         app.get('/login', (req, res) => {
            res.render('login', {
             errors: [],
+            success: null,
             user: {}
             });
         });
