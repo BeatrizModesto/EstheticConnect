@@ -1,0 +1,353 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+
+    font-family:'Inter',sans-serif;
+
+    background-color:  rgba(0, 0, 0, 0.6);
+
+    padding:40px 20px;
+}
+
+.topo-dashboard{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.cabecalho-admin{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:20px;
+}
+
+.container-dashboard{
+
+    max-width:1400px;
+
+    margin:auto;
+
+    background:
+        rgba(255,255,255,.55);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(200,169,107,.25);
+
+    border-radius:32px;
+
+    padding:40px;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.08);
+
+    animation:fadeUp .8s ease;
+}
+
+.logo-dashboard{
+    width:90px;
+    height:auto;
+    display:block;
+}
+
+.titulo-dashboard{
+    margin:0;
+    font-family:'Cormorant Garamond', serif;
+    font-size:3rem;
+    font-weight:600;
+    color:#111;
+}
+
+.btn-sair{
+
+    border:none;
+
+    border-radius:16px;
+
+    padding:12px 25px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #a32121,
+        #d64545
+    );
+
+    color:white;
+
+    font-weight:600;
+
+    text-decoration:none;
+
+    transition:.3s;
+}
+
+.btn-sair:hover{
+
+    transform:translateY(-3px);
+
+    color:white;
+
+    box-shadow:
+        0 10px 20px #fae952;
+}
+
+.secao-titulo{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:2rem;
+
+    color:#000000;
+
+    margin-bottom:20px;
+}
+
+.table-wrapper{
+
+    overflow-x:auto;
+
+    margin-bottom:40px;
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.05);
+}
+
+thead{
+
+    background:
+    linear-gradient(
+        135deg,
+        #b8860b,
+        #d4af37,
+        #f1d37a
+    );
+
+    color:#111;
+}
+
+th{
+
+    padding:15px;
+
+    text-align:center;
+
+    font-weight:700;
+}
+
+td{
+
+    padding:12px;
+
+    border-bottom:1px solid #eee;
+}
+
+tr:hover{
+
+    background:#faf7f2;
+}
+
+input,
+textarea{
+
+    width:100%;
+
+    border:none;
+
+    outline:none;
+
+    background:#f8f8f8;
+
+    border-radius:12px;
+
+    padding:10px;
+
+    font-size:14px;
+
+    transition:.3s;
+}
+
+input:focus,
+textarea:focus{
+
+    background:white;
+
+    border:1px solid #d4af37;
+
+    box-shadow:
+        0 0 10px rgba(212,175,55,.2);
+}
+
+textarea{
+
+    resize:vertical;
+
+    min-height:80px;
+}
+
+.btn-salvar{
+
+    width:100%;
+
+    border:none;
+
+    border-radius:12px;
+
+    padding:10px;
+
+    margin-bottom:8px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #b8860b,
+        #d4af37
+    );
+
+    color:#111;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.btn-salvar:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(212,175,55,.3);
+}
+
+.btn-excluir{
+
+    width:100%;
+
+    border:none;
+
+    border-radius:12px;
+
+    padding:10px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #a32121,
+        #d64545
+    );
+
+    color:white;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.btn-excluir:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(214,69,69,.3);
+}
+
+.alert-success{
+
+    background:#d1e7dd;
+
+    color:#0f5132;
+
+    border:1px solid #badbcc;
+
+    border-radius:12px;
+
+    padding:15px;
+
+    margin-bottom:20px;
+}
+
+.alert-danger{
+
+    background:#f8d7da;
+
+    color:#842029;
+
+    border:1px solid #f5c2c7;
+
+    border-radius:12px;
+
+    padding:15px;
+
+    margin-bottom:20px;
+}
+
+hr{
+
+    margin:40px 0;
+
+    border:none;
+
+    height:1px;
+
+    background:#d8c4b5;
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@media(max-width:768px){
+
+    .container-dashboard{
+
+        padding:20px;
+    }
+
+    .topo-dashboard{
+
+        flex-direction:column;
+
+        gap:20px;
+    }
+
+    .titulo-dashboard{
+
+        font-size:2.2rem;
+        text-align:center;
+    }
+}
