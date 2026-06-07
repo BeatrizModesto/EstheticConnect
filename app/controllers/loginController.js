@@ -1,82 +1,89 @@
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 import Joi from 'joi';
-import dotenv from 'dotenv';
 
 import { loginAdmin } from '../models/login.js';
 
-dotenv.config();
-
 const loginSchema = Joi.object({
+
     email: Joi.string()
-        .email({ tlds: { allow: false } })
-        .required()
-        .messages({
-            'string.email': 'O e-mail fornecido não é válido.',
-            'any.required': 'O e-mail é obrigatório.',
-        }),
+        .email()
+        .required(),
 
     password: Joi.string()
         .required()
-        .messages({
-            'any.required': 'A senha é obrigatória.',
-        }),
+
 });
 
 export const loginUser = async (req, res) => {
-    console.log('[Login Controller]');
 
-    if (!req.body) {
-        return res.status(400).render('login', {
-            errors: ['Corpo da requisição não pode estar vazio.'],
-            success: null,
-            user: {},
-        });
-    }
-
-    const { error, value } = loginSchema.validate(req.body);
+    const { error, value } =
+        loginSchema.validate(req.body);
 
     if (error) {
-        return res.status(400).render('login', {
+
+        return res.render('login', {
             errors: [error.details[0].message],
             success: null,
-            user: req.body,
+            user: req.body
         });
     }
 
     try {
-        const admin = await loginAdmin(value.email);
+
+        const admin =
+            await loginAdmin(value.email);
 
         if (!admin) {
-            return res.status(401).render('login', {
-                errors: ['E-mail ou senha inválidos.'],
+
+            return res.render('login', {
+                errors: ['Email ou senha inválidos'],
                 success: null,
-                user: req.body,
+                user: req.body
             });
         }
 
-        const senhaValida = await bcrypt.compare(
-            value.password,
-            admin.senha
-        );
+        const senhaValida =
+            await bcrypt.compare(
+                value.password,
+                admin.senha
+            );
 
         if (!senhaValida) {
-            return res.status(401).render('login', {
-                errors: ['E-mail ou senha inválidos.'],
+
+            return res.render('login', {
+                errors: ['Email ou senha inválidos'],
                 success: null,
-                user: req.body,
+                user: req.body
             });
         }
+
+        const token = jwt.sign(
+            {
+                id: admin.id,
+                email: admin.email
+            },
+            process.env.JWT_SECRET,
+            {
+                expiresIn: '2h'
+            }
+        );
+
+        res.cookie('token', token, {
+            httpOnly: true,
+            maxAge: 7200000
+        });
 
         return res.redirect('/admin');
 
+    } catch (error) {
 
-    } catch (err) {
-        console.error('[Login Error]', err);
+        console.error(error);
 
-        return res.status(500).render('login', {
-            errors: ['Erro interno ao realizar login.'],
+        res.render('login', {
+            errors: ['Erro interno'],
             success: null,
-            user: req.body,
+            user: req.body
         });
     }
 };
