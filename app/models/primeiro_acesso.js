@@ -1,6 +1,7 @@
 import db from '../../config/dbConnection.js';
 
 export async function addAdministrador(admin) {
+
   const query = `
     INSERT INTO login_administrador
     (nome,email,senha)
@@ -15,3 +16,4 @@ export async function addAdministrador(admin) {
 
   return rows;
 }
+
