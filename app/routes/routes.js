@@ -5,7 +5,7 @@ import { OutrosServicos } from '../controllers/outrosServicosController.js';
 import { getProfissionais, getDuvida } from '../controllers/profissionais.js';
 import { getPost } from '../controllers/blog.js';
 import { addUser } from '../controllers/primeiro_acessoController.js';
-import { excluirAgendamento, excluirDuvida, atualizarAgendamento, atualizarDuvida, dashboard } from '../controllers/adminController.js';
+import { excluirAgendamento, excluirDuvida, atualizarAgendamento, atualizarDuvida, dashboard, logout} from '../controllers/adminController.js';
 import { loginUser } from '../controllers/loginController.js';
 import authAdmin from '../utils/isAuth.js';
 
@@ -15,15 +15,15 @@ export function registerRoutes(app) {
     });
    app.get('/procedimentosfaciais', Proc_Faciais);
    
-    app.get('/procedimentoscorporais', Proc_Corporais);
+   app.get('/procedimentoscorporais', Proc_Corporais);
 
    app.get('/procedimentoscapilares', Proc_Capilares);
 
-    app.get('/outrosservicos', OutrosServicos);
+   app.get('/outrosservicos', OutrosServicos);
 
-     app.get('/profissionais', getProfissionais);
+   app.get('/profissionais', getProfissionais);
 
-    app.get('/blog', getPost );
+   app.get('/blog', getPost );
 
    app.post('/duvida/salvar', getDuvida);
    
@@ -35,43 +35,48 @@ export function registerRoutes(app) {
         });
     });
 
-        app.post('/agendamento', addAgendamento);
+    app.post('/agendamento', addAgendamento);
 
-        app.get('/primeiroAcesso', (req, res) => {
-           res.render('primeiroAcesso', {
-            errors: [],
-            user: {}
-            });
-        });
+    //login e primeiro acesso
+
+    app.get('/primeiroAcesso',(req,res)=>{
+
+    res.render('primeiroAcesso',{
+        errors:[],
+        user:{}
+    });
+
+});
         
-        app.post('/primeiroAcesso', addUser);
+    app.post('/primeiroAcesso', addUser);
 
-        app.get('/login', (req, res) => {
-           res.render('login', {
-            errors: [],
-            success: null,
-            user: {}
-            });
-        });
+    app.get('/login', (req,res)=>{
 
-        app.post('/login', loginUser);
+    res.render('login',{
+        errors:[],
+        success:null,
+        user:{}
+    });
 
-        app.get('/admin', authAdmin, dashboard);
+    });
 
-        app.post('/admin/agendamento/:id/editar', authAdmin, atualizarAgendamento);
+    app.post('/login', loginUser);
 
-        app.post('/admin/agendamento/:id/excluir', authAdmin, excluirAgendamento);
+    // Rotas protegidas para o admin
 
-        app.post('/admin/duvida/:id/editar',authAdmin, atualizarDuvida);
+    app.get('/admin', authAdmin, dashboard);
 
-        app.post('/admin/duvida/:id/excluir',authAdmin,excluirDuvida);
+    app.post('/admin/agendamento/:id/editar', authAdmin, atualizarAgendamento);
 
-    
+    app.post('/admin/agendamento/:id/excluir', authAdmin, excluirAgendamento);
 
-    // app.get('*', (req, res) => {
-    //     res.render('notfound.ejs');
-    // });
+    app.post('/admin/duvida/:id/editar',authAdmin, atualizarDuvida);
+
+    app.post('/admin/duvida/:id/excluir',authAdmin,excluirDuvida);
+
+    app.get('/logout',logout);
+
    
-    
 }
+
 
