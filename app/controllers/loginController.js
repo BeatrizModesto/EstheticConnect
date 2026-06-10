@@ -87,3 +87,6 @@ export const loginUser = async (req, res) => {
         });
     }
 };
+export function voltarHome(req, res) {
+    res.redirect('/');
+}
