@@ -76,6 +76,7 @@ export function registerRoutes(app) {
 
     app.get('/logout',logout);
 
+     app.get('/voltarHome', voltarHome);
    
 }
 
