@@ -1,14 +1,16 @@
-import { getCarousel, getDescricao, addAgendamentoModel} from "../models/home.js";
+import { getCarousel, getDescricao, addAgendamentoModel,getAvaliacoes} from "../models/home.js";
 import Joi from "joi";
 
 export async function home(req, res) {
   try {
     const carousel = await getCarousel();
     const descricao = await getDescricao();
-
+    const avaliacoes = await getAvaliacoes();
+    
     res.render("home", {
       carousel,
-      descricao
+      descricao,
+      avaliacoes
     });
 
   } catch (error) {
