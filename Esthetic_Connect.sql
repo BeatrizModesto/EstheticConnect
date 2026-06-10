@@ -20,6 +20,14 @@ CREATE TABLE descricao (
     texto TEXT
 );
 
+insert into descricao (texto) values ("Em nossa clínica, acreditamos no poder da beleza e do bem-estar se 
+    unindo para criar uma abordagem harmoniosa e equilibrada para o autocuidado. Nossa dedicada equipe de profissionais está empenhada 
+    em fornecer serviços excepcionais que realçam tanto sua beleza externa quanto seu bem-estar interior. Com foco na estética,
+    oferecemos uma variedade de tratamentos e procedimentos avançados projetados para ajudá-lo a se sentir melhor. De tratamentos 
+    faciais revitalizantes e cuidados com a pele rejuvenescedores a melhorias cosméticas não invasivas, nossos profissionais 
+    especializados são hábeis em fornecer resultados naturais 
+    e impressionantes, adaptados às suas necessidades exclusivas.");
+
 /*Procedimentos corporais*/
 
 CREATE TABLE procedimentos_corporais(
@@ -27,6 +35,48 @@ CREATE TABLE procedimentos_corporais(
  icone_corporal VARCHAR(255),
  titulo_corporal VARCHAR(100),
  descricao_corporal TEXT
+);
+
+CREATE TABLE avaliacoes (
+
+    id INT AUTO_INCREMENT PRIMARY KEY,
+
+    nome VARCHAR(100) NOT NULL,
+
+    nota INT NOT NULL,
+
+    texto TEXT NOT NULL,
+
+    ativo BOOLEAN DEFAULT TRUE
+
+);
+
+INSERT INTO avaliacoes
+(nome, nota, texto)
+VALUES
+
+(
+'Maria Silva',
+5,
+'Excelente atendimento e profissionais muito atenciosos.'
+),
+
+(
+'Ana Souza',
+5,
+'Adorei meu procedimento facial. Resultado incrível.'
+),
+
+(
+'Fernanda Lima',
+4,
+'Ambiente agradável e atendimento excelente.'
+),
+
+(
+'Juliana Costa',
+5,
+'Minha experiência foi maravilhosa. Recomendo muito.'
 );
 
 INSERT INTO procedimentos_corporais (icone_corporal, titulo_corporal, descricao_corporal) VALUES
