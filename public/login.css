@@ -223,3 +223,37 @@ button:active{
         width:100px;
     }
 }
+
+.btn-sair{
+
+    border:none;
+
+    border-radius:16px;
+
+    padding:12px 25px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #9aa321,
+        #ccd645
+    );
+
+    color:white;
+
+    font-weight:600;
+
+    text-decoration:none;
+
+    transition:.3s;
+}
+
+.btn-sair:hover{
+
+    transform:translateY(-3px);
+
+    color:white;
+
+    box-shadow:
+        0 10px 20px #fae952;
+}
