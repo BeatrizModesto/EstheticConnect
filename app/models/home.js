@@ -28,3 +28,18 @@ export async function addAgendamentoModel(agendamento) {
   return rows;
 }
 
+export async function getAvaliacoes() {
+
+    const query = `
+        SELECT *
+        FROM avaliacoes
+        WHERE ativo = true
+        ORDER BY id DESC
+    `;
+
+    const [rows] =
+        await db.execute(query);
+
+    return rows;
+}
+
