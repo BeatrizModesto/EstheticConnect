@@ -1,32 +1,44 @@
-import{addDuvidaModel, listarProfissionais}  from "../models/Profissionais.js";
+import { addDuvidaModel, listarProfissionais } from "../models/Profissionais.js";
 import Joi from "joi";
 
 export async function getProfissionais(req, res) {
   try {
     const profissionais = await listarProfissionais();
-    res.render('Profissionais.ejs', { profissionais });
-    } catch (erro) {
-      console.error(erro);
-      res.status(500).send('Erro ao carregar a lista de profissionais:');
-    }
-}
 
+    res.render('Profissionais.ejs', {
+      profissionais,
+      sucesso: false
+    });
+
+  } catch (erro) {
+    console.error(erro);
+    res.status(500).send('Erro ao carregar a lista de profissionais:');
+  }
+}
 
 export async function getDuvida(req, res) {
 
   const { error } = schema.validate(req.body);
-    if (error) {
-    return res.render('profissionais.ejs', {
-      profissionais: req.body,
+
+  if (error) {
+    const profissionais = await listarProfissionais();
+
+    return res.render("Profissionais.ejs", {
+      profissionais,
       errors: error.details
     });
-
-   }
+  }
 
   try {
     await addDuvidaModel(req.body);
 
-    res.redirect('/profissionais');
+    const profissionais = await listarProfissionais();
+
+    res.render("Profissionais.ejs", {
+      profissionais,
+      sucesso: true
+    });
+
   } catch (erro) {
     console.error("Erro ao salvar a dúvida do usuário:", erro);
 
@@ -42,4 +54,3 @@ const schema = Joi.object({
   telefone: Joi.string().min(10).max(20).required(),
   duvida: Joi.string().min(5).required(),
 });
-

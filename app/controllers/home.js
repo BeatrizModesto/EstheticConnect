@@ -27,13 +27,20 @@ export async function addAgendamento(req, res) {
   if (error) {
     return res.render('agendamento.ejs', {
       agendamento: req.body,
-      errors: error.details
+      errors: error.details,
+      sucesso: false
     });
   }
 
   try {
     await addAgendamentoModel(req.body);
-    res.redirect('/');
+
+    res.render('agendamento.ejs', {
+      agendamento: {},
+      errors: [],
+      sucesso: true
+    });
+
   } catch (error) {
     console.log(error);
     res.status(500).send("Erro");

@@ -6,7 +6,7 @@ import { getProfissionais, getDuvida } from '../controllers/profissionais.js';
 import { getPost } from '../controllers/blog.js';
 import { addUser } from '../controllers/primeiro_acessoController.js';
 import { excluirAgendamento, excluirDuvida, atualizarAgendamento, atualizarDuvida, dashboard, logout} from '../controllers/adminController.js';
-import { loginUser } from '../controllers/loginController.js';
+import { loginUser, voltarHome } from '../controllers/loginController.js';
 import authAdmin from '../utils/isAuth.js';
 
 export function registerRoutes(app) {
@@ -31,7 +31,8 @@ export function registerRoutes(app) {
    app.get('/agendamento', (req, res) => {
         res.render('agendamento', {
             agendamento: {},
-            errors: []
+            errors: [],
+            sucesso: false
         });
     });
 
