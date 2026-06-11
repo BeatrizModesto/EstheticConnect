@@ -5,7 +5,7 @@ export async function getProfissionais(req, res) {
   try {
     const profissionais = await listarProfissionais();
 
-    res.render('Profissionais.ejs', {
+    res.render('profissionais.ejs', {
       profissionais,
       sucesso: false
     });
@@ -34,7 +34,7 @@ export async function getDuvida(req, res) {
 
     const profissionais = await listarProfissionais();
 
-    res.render("Profissionais.ejs", {
+    res.render("profissionais.ejs", {
       profissionais,
       sucesso: true
     });
