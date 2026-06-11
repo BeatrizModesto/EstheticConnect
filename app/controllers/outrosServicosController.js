@@ -1,4 +1,4 @@
-import OutrosServicosModel from '../models/outrosServicosModel.js"';
+import OutrosServicosModel from '../models/outrosServicosModel.js';
 
 export async function OutrosServicos(req, res) {
 
