@@ -10,7 +10,10 @@ const dbConfig = {
     password: process.env.MYSQLPASSWORD,
     port: process.env.MYSQLPORT
 };
-
+console.log('MYSQLHOST=', process.env.MYSQLHOST);
+console.log('MYSQLDATABASE=', process.env.MYSQLDATABASE);
+console.log('MYSQLUSER=', process.env.MYSQLUSER);
+console.log('MYSQLPORT=', process.env.MYSQLPORT);
 const pool = mysql.createPool(dbConfig);
 
 (async () => {
@@ -28,6 +31,7 @@ const pool = mysql.createPool(dbConfig);
         connection.release();
     } catch (error) {
         console.error('Conexão com o banco de dados gerou um erro.');
+        console.error(error);
 
         if (error.code === 'ECONNREFUSED') {
             console.error('O serviço MySQL não está rodando no localhost');
