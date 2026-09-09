@@ -68,9 +68,7 @@ Execute o servidor:
 
   node index.js
 
-  Depois abra no navegador:
-
-  http://localhost:3000
+  
   
 📱 Exemplos de Uso
 
